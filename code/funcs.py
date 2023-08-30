@@ -1,4 +1,18 @@
-# Auxiliary functions
+import datetime
+from datetime import datetime
+
+def transformed_date(date):
+    """функция принимает дату и возвращает её в нужном формате"""
+    str_date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
+    date_formatted = datetime.strftime(str_date, "%d.%m.%Y")
+
+    return date_formatted
+
+# date1 = "2018-11-29T07:18:23.941293" # for control
+# date2 = "2018-10-14T22:27:25.205631" # for control
+# b = transformed_date(date1)
+# print(b)
+
 
 def transformed_from(number):
     """функция принимает номер карты отправителя и выдает в нужном формате"""
@@ -16,7 +30,10 @@ def transformed_from(number):
     last_part = "".join(new_list2[-4:])
     word = "".join(new_list1)
 
-    return f"{word}{first_part} {second_part}** **** {last_part}"
+    if len(new_list2) == 16:
+        return f"{word}{first_part} {second_part}** **** {last_part}"
+    else:
+        return f"{word}{first_part} {second_part}** **** **** {last_part}" #потому что у счета в итоге 20 чисел
 
 # num = "MasterCard 3152479541115065" # for control
 # num = "Счет 27248529432547658655" # for control
