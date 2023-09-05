@@ -6,7 +6,9 @@ from funcs import transformed_date, transformed_from, transformed_to
 file = open('operations.json', encoding="utf8")
 operations_list = json.load(file)
 
-operations_sorted = sorted(operations_list, key=lambda x: x['date'], reverse=True)
+operations_list_without_empty = [x for x in operations_list if x] # удаляем пустой словарь
+
+operations_sorted = sorted(operations_list_without_empty, key=lambda x: x['date'], reverse=True)
 # print(operations_sorted) # for control
 
 

@@ -26,7 +26,7 @@ def transformed_from(number):
         elif str_n.isalpha() or str_n.isspace() == False:
             new_list2.append(str_n) # list for numbers
     first_part = "".join(new_list2[:4])
-    second_part = "".join(new_list2[5:6])
+    second_part = "".join(new_list2[5:7])
     last_part = "".join(new_list2[-4:])
     word = "".join(new_list1)
 
